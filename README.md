@@ -8,8 +8,15 @@ Telco is a telecommunications provider that has experienced high levels of churn
 - Use the drivers to develop a ML program that predicts churn with at least 80% accuracy
 - Deliver a report to a non techinical supervisor in a digestable manner
 
+## Questions to Answer
+- Does monthly cost or total cost impact churn more?
+- Does payment type affect churn?
+- Does contract type affect churn?
+- Does having dependants impact churn?
+- Of the listed variables, which has the most statistical significance in regards to churn?
+
 ## Initial Thoughts and Hypothesis
-I believe that the main drivers behind churn will be monthly cost and contract type (i.e. the way the contract is structured) with the assumption that lower monthly charges and longer contracts being less likely to churn compared to the high monthly charges and less committed contracts
+I believe that the main drivers behind churn will be monthly cost and contract type (i.e. the way the contract is structured) with the assumption that lower monthly charges and longer contracts being less likely to churn compared to the high monthly charges and less committed contracts. I also think that having dependants will also impact churn do to having more than one line to handle.
 
 ## Planning
 - Use the aquire.py already used in previous exerices to aquire the data necessary
