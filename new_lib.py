@@ -42,6 +42,10 @@ def connect(db_name, filename, query):
         return variable
 
 def train_vailidate_test_split(df, target):
+    '''
+    splits the data inserted into a train test validate split
+    
+    '''
     train_validate, test = train_test_split(df, train_size =.8, random_state = 91, stratify = df[target])
     train, validate = train_test_split(train_validate, train_size = .7, random_state = 91, stratify = train_validate[target])
     return train, validate, test
