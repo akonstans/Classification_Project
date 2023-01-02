@@ -48,4 +48,10 @@ def train_vailidate_test_split(df, target):
     '''
     train_validate, test = train_test_split(df, train_size =.8, random_state = 91, stratify = df[target])
     train, validate = train_test_split(train_validate, train_size = .7, random_state = 91, stratify = train_validate[target])
-    return train, validate, test
+    X_train = train.drop(columns=target)
+    y_train = train[target]
+    X_val = validate.drop(columns=target)
+    y_val = validate[target]
+    X_test = test.drop(columns=target)
+    y_test = test[target]
+    return train, validate, test, X_train, y_train, X_val, y_val, X_test, y_test
