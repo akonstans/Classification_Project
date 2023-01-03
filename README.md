@@ -9,9 +9,9 @@ Telco is a telecommunications provider that has experienced high levels of churn
 - Deliver a report to a non techinical supervisor in a digestable manner
 
 ## Questions to Answer
-- Does monthly cost or total cost impact churn more?
-- Does payment type affect churn?
-- Does contract type affect churn?
+- Does monthly charges impact churn?
+- Does payment type impact churn?
+- Does contract type impact churn?
 - Does having dependants impact churn?
 - Of the listed variables, which has the most statistical significance in regards to churn?
 
@@ -33,6 +33,14 @@ I believe that the main drivers behind churn will be monthly cost and contract t
 ## Data Dictionary
 | Feature | Description |
 | --- | --- |
-| Churn | When a customer cancels contract or subscription with the company |
+| churn | When a customer cancels contract or subscription with the company |
 | contract_type | The type of contract that the customer has with Telco |
 | payment_type | The form in which the customer pays their monthly bill |
+| dependents | Whether or not the customer has a dependent on their account |
+| monthly_charges | How much a customer pays per month |
+| tenure | How long a customer has been with the company |
+| total_charges | How much a customer has paid over their entire tenure |
+| payment_type_id | Number assignments for stats purposes |
+| contract_type_id | Number assignments for stats purposes |
+| multiple_lines | Whether customer has more than one phone line on account |
+
