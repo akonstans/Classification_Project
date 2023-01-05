@@ -4,7 +4,9 @@ import os
 
 
 def get_telco_data(get_db_url):
+    ''' Acquiring the raw telco data
     
+    '''
     if os.path.isfile('telco.csv'):
         
         return pd.read_csv('telco.csv')
@@ -21,11 +23,15 @@ def get_telco_data(get_db_url):
         return df
 
 def data(df):
+    ''' Curating the telco data to the desired shape and
+        list of parameters
+    
+    '''
     df = get_telco_data(nl.get_db_url)
     df = df.iloc[:, 1:]
     df = df.drop(['gender', 'senior_citizen', 'partner', 'phone_service', 'tech_support', 'streaming_tv', 
                     'streaming_movies', 'paperless_billing', 'internet_service_type', 'online_security', 'online_backup', 
-                    'device_protection', 'internet_service_type_id', 'customer_id'], axis =1)
+                    'device_protection', 'internet_service_type_id', 'customer_id', 'multiple_lines'], axis =1)
     df = df.dropna()
     df.total_charges = df.total_charges.replace(' ', 0).astype(float)
     
