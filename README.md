@@ -42,5 +42,19 @@ I believe that the main drivers behind churn will be monthly cost and contract t
 | total_charges | How much a customer has paid over their entire tenure |
 | payment_type_id | Number assignments for stats purposes |
 | contract_type_id | Number assignments for stats purposes |
-| multiple_lines | Whether customer has more than one phone line on account |
 
+## Takeaways and Conclusion
+-  The models all reached around 79% accuracy which is about a 5% improvment over the baseline
+-  The models all very accuractly prediciting retention but struggled to accurately predict who would churn
+  - Most models reached around a 50% success rate of predicting active churn
+- The statistical relevance of all drivers was extremely high with all being significantly lower p values than .05
+- Visualizations imply that a lot of churn is related to the contract and payment type used by customers
+  - Month to month contracts and electronic check payment plans had the most churn by far
+
+## Recomendations
+- The company should encourage and heavily incentivize customers to sign long term contracts to ensure higher retention rates
+- The company should also look towards a direct deposit system of payment to also increase retention among customers
+
+## Next Steps
+- Given more time, an analysis of all variables would be preferable to find any better drivers of churn
+- Creating more models and trying to increase accuracy to at least 80% would also be a good goal to pursue given more time
