@@ -15,10 +15,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 
 def chi2(parameter, df):
-''' This function creates a p-value chi2 test for a specific parameter in a data frame.
+    ''' This function creates a p-value chi2 test for a specific parameter in a data frame.
     Make sure to remember to only use catahgorical variables
 
-'''
+    '''
 
     chi2, p, degf, expected = chi2, p, degf, expected = stats.chi2_contingency(pd.crosstab(df.churn, df[parameter]))
     if p <= .05:
@@ -112,7 +112,7 @@ def baseline(df, target):
     baseline = len(df[df[target] == 'No'])/ len(df)
     return baseline
 
-def dec_tree(x, y, depth):
+def dec_tree(x, y, depth, X_train, y_train):
     '''Creating a decision tree model and a visualization of the tree
         the only hard code in here is X_train and y_train which is necessary to usen this 
         function for other groups
@@ -124,7 +124,7 @@ def dec_tree(x, y, depth):
 
     return train_tree
 
-def tree_score(x,y,depth):
+def tree_score(x, y, depth, X_train, y_train):
     '''Creating an  accuracy score for the decision tree model created
         Same hard code to ensure accuracy when using var and test sets
     
@@ -134,7 +134,7 @@ def tree_score(x,y,depth):
     train_tree.score(x,y)
     return train_tree.score(x,y)
 
-def tree_matrix(x, y, depth):
+def tree_matrix(x, y, depth, X_train, y_train):
     '''Creates a confusion matrix for a decision tree, the matrix can only contain two parameters
     hard code again to ensure consistency with the other decision tree functinos
     
@@ -146,7 +146,7 @@ def tree_matrix(x, y, depth):
     df = pd.DataFrame(confusion_matrix(y, pred), index=labels, columns=labels)
     return df
 
-def tree_report(x, y, depth):
+def tree_report(x, y, depth, X_train, y_train):
     ''' Creates a classification report for the decision tree functions
         which allows for a more detailed exploration of the model
     
@@ -156,7 +156,7 @@ def tree_report(x, y, depth):
     pred = train_tree.predict(x)
     print(classification_report(y, pred))
 
-def ran_score(x, y, depth):
+def ran_score(x, y, depth, X_train, y_train):
     ''' Creates a score for a random forest distribution,
         The hard code is to ensure workability and consistency within the model
         when using other sets for x and y
@@ -174,7 +174,7 @@ def ran_score(x, y, depth):
     rf.score(x, y)
     return rf.score(x, y)
 
-def ran_matrix(x, y, depth):
+def ran_matrix(x, y, depth, X_train, y_train):
     ''' Creates a confusion matrix for the random forest model
         hard code again ensures continuity
         
@@ -192,7 +192,7 @@ def ran_matrix(x, y, depth):
     df = pd.DataFrame(confusion_matrix(y, pred), index=labels, columns=labels)
     return df
 
-def ran_report(x, y, depth):
+def ran_report(x, y, depth, X_train, y_train):
     ''' Creates a classification report for the random forest model
         this allows for more in depth data and understanding of the model
     
@@ -208,7 +208,7 @@ def ran_report(x, y, depth):
     pred = rf.predict(x)
     print(classification_report(y, pred))
 
-def log_reg_score(x, y, c):
+def log_reg_score(x, y, c, X_train, y_train):
     ''' Creates a logistical regression model and accuracy score for the data provided
         Hard code ensures that the model is only ever fitted to the train data
     
@@ -219,7 +219,7 @@ def log_reg_score(x, y, c):
     logit.score(x, y)
     return logit.score(x, y)
 
-def log_matrix(x, y, c):
+def log_matrix(x, y, c, X_train, y_train):
     ''' Creates a confusion matrix for a logistical regression model
         allowing for visualization of all predicitions made by the model
     
@@ -231,7 +231,7 @@ def log_matrix(x, y, c):
     df = pd.DataFrame(confusion_matrix(y, pred), index=labels, columns=labels)
     return df
 
-def log_report(x, y, c):
+def log_report(x, y, c, X_train, y_train):
     ''' Creates a classification report for the logistical regression model
         allowing for increased exploration and information on the model
     
